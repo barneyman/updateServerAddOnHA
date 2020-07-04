@@ -1,0 +1,3 @@
+[submodule "espUpdateServer"]
+	path = espUpdateServer
+	url = https://github.com/barneyman/espUpdateServer.git

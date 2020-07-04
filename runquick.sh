@@ -1,0 +1,1 @@
+sudo docker run --rm -v /tmp/my_test_data:/data -p 8080:8080/tcp -v /var/run/docker.sock:/var/run/docker.sock:ro local/bjfaddon
