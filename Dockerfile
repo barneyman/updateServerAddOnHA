@@ -1,22 +1,27 @@
-ARG BUILD_FROM=hassioaddons/base:7.2.0
+# For more information, please refer to https://aka.ms/vscode-docker-python
+FROM python:3.8-slim-buster
 
-FROM ${BUILD_FROM}
+# Keeps Python from generating .pyc files in the container
+ENV PYTHONDONTWRITEBYTECODE=1
 
-ENV LANG C.UTF-8
+# Turns off buffering for easier container logging
+ENV PYTHONUNBUFFERED=1
 
-# install requirements
-RUN apk add --no-cache python3 git linux-headers py3-pip \
-    && pip3 install --no-cache-dir --upgrade pip \
-    && pip3 install zeroconf \
-    && pip3 install requests \
-#    && pip3 install urllib.parse \
-    && pip3 install cherrypy
 
-#RUN git clone https://github.com/barneyman/espUpdateServer.git
 
-# Copy data for add-on
-COPY run.sh /
-COPY espUpdateServer/server.py /
-RUN chmod a+x /run.sh
+# Install pip requirements
+COPY requirements.txt .
+RUN python -m pip install -r requirements.txt
 
-CMD [ "/run.sh" ]
+WORKDIR /app
+COPY ./espUpdateServer /app
+
+VOLUME /data
+# Creates a non-root user and adds permission to access the /app folder
+# For more info, please refer to https://aka.ms/vscode-docker-python-configure-containers
+# RUN useradd appuser && chown -R appuser /app && chown -R appuser /data
+# USER appuser
+
+
+# During debugging, this entry point will be overridden. For more information, please refer to https://aka.ms/vscode-docker-python-debug
+CMD ["python", "server.py"]
