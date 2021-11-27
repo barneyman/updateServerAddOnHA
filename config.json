@@ -12,6 +12,7 @@
     "options": { 
         
         "host":"hassio", 
+        "port":8080,
         "logging":"WARNING",
         "prerelease":false,
         "release":true,
@@ -19,6 +20,7 @@
     },
     "schema": { 
         "host":"str", 
+        "port":"int(0,65535)",
         "logging":"list(CRITICAL|ERROR|WARNING|INFO|DEBUG)",
         "prerelease":"bool",
         "release":"bool",
