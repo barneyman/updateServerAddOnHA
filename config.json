@@ -1,6 +1,6 @@
 {
     "name": "barneyman deploy server",
-    "version": "1.6.8",
+    "version": "1.7.1",
     "slug": "barneyman_deploy",
     "description": "Fetches built binaries from Git (R and PR) and pushes them to local devices",
     "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
@@ -9,8 +9,22 @@
     "hassio_api": false,
     "homeassistant_api": false,
     "hassio_role": "default",
-    "options": { "host":"hassio" },
-    "schema": { "host":"str" },
+    "options": { 
+        
+        "host":"hassio", 
+        "logging":"WARNING",
+        "prerelease":false,
+        "release":true,
+        "legacy":true
+    },
+    "schema": { 
+        "host":"str", 
+        "logging":"list(CRITICAL|ERROR|WARNING|INFO|DEBUG)",
+        "prerelease":"bool",
+        "release":"bool",
+        "legacy":"bool"
+    },
+    "ports_description":{"8080/tcp":"RESTful endpoint"},
     "ports": {
         "8080/tcp": 8080
     }
