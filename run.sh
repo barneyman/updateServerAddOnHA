@@ -2,4 +2,4 @@
 
 echo Starting Update Server
 
-python3 ./server.py
+python3 ./espUpdateServer/server.py
