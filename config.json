@@ -1,6 +1,6 @@
 {
     "name": "barneyman deploy server",
-    "version": "1.8.6",
+    "version": "1.9.0",
     "slug": "barneyman_deploy",
     "description": "Fetches built binaries from Git (R and PR) and pushes them to local devices",
     "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
@@ -16,8 +16,7 @@
         "logging":"WARNING",
         "prerelease":false,
         "release":true,
-        "legacy":true,
-	"poll":15
+    	"poll":15
     },
     "schema": { 
         "host":"str", 
@@ -25,8 +24,7 @@
         "logging":"list(CRITICAL|ERROR|WARNING|INFO|DEBUG)",
         "prerelease":"bool",
         "release":"bool",
-        "legacy":"bool",
-	"poll":"int(5,120)"
+    	"poll":"int(5,120)"
     },
     "ports_description":{"8080/tcp":"RESTful endpoint"},
     "ports": {
