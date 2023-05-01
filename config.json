@@ -1,6 +1,6 @@
 {
     "name": "barneyman deploy server",
-    "version": "1.9.0",
+    "version": "1.10.0",
     "slug": "barneyman_deploy",
     "description": "Fetches built binaries from Git (R and PR) and pushes them to local devices",
     "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
@@ -14,17 +14,19 @@
         "host":"hassio", 
         "port":8080,
         "logging":"WARNING",
-        "prerelease":false,
+        "nightly":false,
         "release":true,
-    	"poll":15
+    	"poll":15,
+        "token":"please create a PAT"
     },
     "schema": { 
         "host":"str", 
         "port":"int(0,65535)",
         "logging":"list(CRITICAL|ERROR|WARNING|INFO|DEBUG)",
-        "prerelease":"bool",
+        "nightly":"bool",
         "release":"bool",
-    	"poll":"int(5,120)"
+    	"poll":"int(5,120)",
+        "token":"str"
     },
     "ports_description":{"8080/tcp":"RESTful endpoint"},
     "ports": {
