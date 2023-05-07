@@ -16,7 +16,7 @@
         "nightly":false,
         "release":true,
     	"poll":15,
-        "token":"please create a PAT"
+        "token":"please create a GITHUB PAT with public repo access"
     },
     "schema": { 
         "host":"str", 
