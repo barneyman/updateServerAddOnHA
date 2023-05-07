@@ -1,6 +1,6 @@
 {
     "name": "barneyman deploy server",
-    "version": "1.10.0",
+    "version": "1.11.0",
     "slug": "barneyman_deploy",
     "description": "Fetches built binaries from Git (R and PR) and pushes them to local devices",
     "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
@@ -16,7 +16,7 @@
         "nightly":false,
         "release":true,
     	"poll":15,
-        "token":"please create a PAT"
+        "token":"please create a GITHUB PAT with public repo access"
     },
     "schema": { 
         "host":"str", 
